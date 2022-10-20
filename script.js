@@ -31,7 +31,10 @@ const addNewTodo = () => {
     }
 }
 
-
+const createToolsArea = () => {
+     const toolsPanel = document.createElement('div')
+     toolsPanel.classList.add('tools')
+}
 
 document.addEventListener('DOMContentLoaded', main)
 

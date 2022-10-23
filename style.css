@@ -126,7 +126,7 @@ h1 {
 }
 
 .completed {
-    font-size: 12px;
+    font-size: 11px;
     color: var(--light-dark);
     text-decoration: line-through;
     font-style: italic;

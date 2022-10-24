@@ -21,12 +21,11 @@ const prepareDOMElements = () => {
   addBtn = document.querySelector(".btn-add");
   ulList = document.querySelector(".todolist ul");
 
-  popup = document.querySelector('.popup')
-  popupInfo = document.querySelector('.popup-info')
-  popupInput = document.querySelector('.popup-input')
-  popupAddBtn = document.querySelector('.accept')
-  popupCloseBtn = document.querySelector('.cancel')
-
+  popup = document.querySelector(".popup");
+  popupInfo = document.querySelector(".popup-info");
+  popupInput = document.querySelector(".popup-input");
+  popupAddBtn = document.querySelector(".accept");
+  popupCloseBtn = document.querySelector(".cancel");
 };
 
 const prepareDOMEvents = () => {
@@ -70,24 +69,24 @@ const createToolsArea = () => {
   toolsPanel.append(completeBtn, editBtn, deleteBtn);
 };
 
-const checkClick = e => {
-  if (e.target.matches('.complete')) {
-    e.target.closest('li').classList.toggle('completed');
-    e.target.classList.toggle('completed');
-  } else if (e.target.matches('.edit')) {
-    editTodo();
-  } else if (e.target.matches('.delete')) {
-    console.log('delete');
-  };
+const checkClick = (e) => {
+  if (e.target.matches(".complete")) {
+    e.target.closest("li").classList.toggle("completed");
+    e.target.classList.toggle("completed");
+  } else if (e.target.matches(".edit")) {
+    editTodo(e);
+  } else if (e.target.matches(".delete")) {
+    console.log("delete");
+  }
 };
 
-const editTodo = () => {
-  popup.style.display = 'flex'
-}
+const editTodo = (e) => {
+  todoToEdit = e.target.closest('li')
+  popup.style.display = "flex";
+};
 const closePopup = () => {
-  popup.style.display = 'none'
-}
-
+  popup.style.display = "none";
+};
 
 document.addEventListener("DOMContentLoaded", main);
 
@@ -104,7 +103,6 @@ document.addEventListener("DOMContentLoaded", main);
 
 // add(5, 5)
 
-
 // const add2 = (x, y) => {
 //   const score2 = x + y;
 //   showScore2(score)
@@ -117,7 +115,6 @@ document.addEventListener("DOMContentLoaded", main);
 
 // add2(19, 3)
 
-
 // function odliczanie() {
 //   let dzisiaj = new Date();
 
@@ -125,13 +122,8 @@ document.addEventListener("DOMContentLoaded", main);
 //   let miesiac = dzisiaj.getMonth();
 //   let rok = dzisiaj.getFullYear();
 
-
 //   let sekunda = dzisiaj.getSeconds();
 
 //   setTimeout("odliczanie()", 1000);
 //   document.getElementById("zegar").innerHTML = dzien + "/" + miesiac + "/" + rok+"/"+sekunda;
 // }
-
-
-
-

@@ -30,9 +30,9 @@ const prepareDOMElements = () => {
 
 const prepareDOMEvents = () => {
   addBtn.addEventListener("click", addNewTodo);
-  addBtn.addEventListener("click", addNewTodo);
   ulList.addEventListener("click", checkClick);
   popupCloseBtn.addEventListener("click", closePopup);
+  popupAddBtn.addEventListener('click', changeTodoText)
 };
 
 const addNewTodo = () => {
@@ -81,12 +81,27 @@ const checkClick = (e) => {
 };
 
 const editTodo = (e) => {
-  todoToEdit = e.target.closest('li')
+  todoToEdit = e.target.closest('li');
+
+  popupInput.value = todoToEdit.firstChild.textContent;
+  console.log(todoToEdit.firstChild);
   popup.style.display = "flex";
 };
 const closePopup = () => {
   popup.style.display = "none";
+  popupInfo.textContent = '';
 };
+
+const changeTodoText = () => {
+  if (popupInput.value !== '') {
+    todoToEdit.firstChild.textContent = popupInput.value;
+    popup.style.display = 'none';
+    popupInfo.style.textContent = '';
+
+  } else {
+    popupInfo.textContent = "Musisz podać jakąś treść!";
+  }
+}
 
 document.addEventListener("DOMContentLoaded", main);
 
